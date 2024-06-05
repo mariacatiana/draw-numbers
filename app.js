@@ -8,11 +8,16 @@ function draw(){
 
     for (let i = 0; i < quantity; i++) {
         number = getRandomNumber (of, until);
-        drawn.push(number);
 
+        while (drawn.includes(number)) {
+            number = getRandomNumber( of, until)
+        }
+
+        drawn.push(number);
     }
 
-    alert(drawn);
+    let result = document.getElementById('result');
+    result.innerHTML = `<label class="paragraph__text">Numbers drawn: ${drawn}</label>`;
 
 }
 
